@@ -17,7 +17,7 @@ def check_passed_data(y_true, y_pred_1, y_pred_2):
             assert data.ndim == 1, "Input data is not a 1D NumPy array"
         assert isinstance(data, (list, np.ndarray, pd.Series)), "Input data is not one-dimensional"
     # check the data is correctly formatted
-    assert len(y_true) == len(y_pred_2) == len(y_pred_2), 'Length mismatch'
+    assert len(y_true) == len(y_pred_1) == len(y_pred_2), 'Length mismatch'
     
 # Q1 and Q2 calculations
 # see Hanley and McNeil (1982)
