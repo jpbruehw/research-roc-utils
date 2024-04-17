@@ -1,10 +1,10 @@
-<div style="text-align: center">
+<div style="margin: auto;">
     <img src="https://i.postimg.cc/265WB2yK/roc-curve-package.png"/>
 </div>
 
 # Research Utility Package for ROC Curves and AUROC Analysis
 
-<b>Fun Fact:</b> The term “Receiver Operating Characteristic” has its roots in <a src="https://www.statisticshowto.com/receiver-operating-characteristic-roc-curve/">World War II</a>. ROC curves were originally developed by the British as part of the <a src="https://en.wikipedia.org/wiki/Chain_Home">Chain Home</a> radar system. The analysis technique was used to differentiate between enemny aircraft and random noise.
+<b>Fun Fact:</b> The term “Receiver Operating Characteristic” has its roots in <a href="https://www.statisticshowto.com/receiver-operating-characteristic-roc-curve/">World War II</a>. ROC curves were originally developed by the British as part of the <a href="https://en.wikipedia.org/wiki/Chain_Home">Chain Home</a> radar system. The analysis technique was used to differentiate between enemny aircraft and random noise.
 
 ## Table of Contents
 
@@ -32,11 +32,12 @@
 
 ROC, or Receiver Operating Characteristic Curve, is essentially a graph that shows how well a binary classification problem is performing. When observing the graph, there is a straight line cutting through the graph at a 45 degree angle. This line represents random guessing, i.e. the model is no better at classifying a class than a coin flip.
 
-<div style="display: flex; flex-direction: column; align-items: center">
-    <img src="https://assets-global.website-files.com/6266b596eef18c1931f938f9/647607123e84a06a426ce627_classification_metrics_014-min.png" style="height: 300px"/>
-    <a src="https://www.evidentlyai.com/classification-metrics/explain-roc-curve#how-to-get-the-roc-auc-score">Image Source</a>
+<div style="margin: auto;">
+    <a href="https://www.evidentlyai.com/classification-metrics/explain-roc-curve#how-to-get-the-roc-auc-score">
+        <img src="https://assets-global.website-files.com/6266b596eef18c1931f938f9/647607123e84a06a426ce627_classification_metrics_014-min.png" style="height: 300px; margin: auto;"/>
+    </a>
 </div>
-The lines can be interpreted as the trade-off between <a src="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc">true positive rate (TPR) and the false positive rate (FPR)</a> . TPR is also often referred to as the <b>recall score</b>, especially in machine learning contexts. It is calculated by dividing the number of correctly identified true cases divided by the sum of the number of correctly identifies true cases and the false negatives.
+The lines can be interpreted as the trade-off between <a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc">true positive rate (TPR) and the false positive rate (FPR)</a> . TPR is also often referred to as the <b>recall score</b>, especially in machine learning contexts. It is calculated by dividing the number of correctly identified true cases divided by the sum of the number of correctly identifies true cases and the false negatives.
 
 $$
 \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
@@ -62,17 +63,18 @@ The way to interpret the graph visually is: the closer the graph's line is to th
 
 ## What is AUROC analysis?
 
-While visual inspection of the ROC plot is sufficient in certain cases, oftentimes it can be beneficial to dive deeper in the model's effectiveness. This is where AUROC, or <b>Area Under the Receiver Operating Characteristic</b>, analysis comes into play. It is exactly what it sounds like, in the sense that it is literally the area under the ROC curve. Conceptually, it is a single number which quantifies the overall ability of the model to classify beyond visual inspection alone. It is a score which ranges between 0 and 1, where 0.5 represents random guessing and 1 represents perfect performance. There are several different ways to calculate the AUROC score, but the most common method is to use the <a src="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a>. This is not something anyone would ever calculate by hand, but the mechanics basically involve forming trapezoids progressively across the graph to estimate the area.
+While visual inspection of the ROC plot is sufficient in certain cases, oftentimes it can be beneficial to dive deeper in the model's effectiveness. This is where AUROC, or <b>Area Under the Receiver Operating Characteristic</b>, analysis comes into play. It is exactly what it sounds like, in the sense that it is literally the area under the ROC curve. Conceptually, it is a single number which quantifies the overall ability of the model to classify beyond visual inspection alone. It is a score which ranges between 0 and 1, where 0.5 represents random guessing and 1 represents perfect performance. There are several different ways to calculate the AUROC score, but the most common method is to use the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a>. This is not something anyone would ever calculate by hand, but the mechanics basically involve forming trapezoids progressively across the graph to estimate the area.
 
-<div style="display: flex; flex-direction: column; align-items: center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trapezium2.gif/440px-Trapezium2.gif" style="height: 300px"/>
-    <a src="https://en.wikipedia.org/wiki/Trapezoidal_rule">Wikipedia</a>
+<div style="margin: auto;">
+    <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trapezium2.gif/440px-Trapezium2.gif" style="height: 300px"/>
+    </a>
 </div>
 
 ## James A. Hanley and Barbara McNeil Methodology
 
-Hanley, of <a src="https://www.mcgill.ca/epi-biostat-occh/james-hanley">McGill University</a>, and McNeil, of <a src="https://hcp.hms.harvard.edu/people/barbara-j-mcneil?page=18">Harvard University</a>, published a landmark paper titled: <a src="https://pubs.rsna.org/doi/epdf/10.1148/radiology.143.1.7063747">The Meaning and Use of the Area under a Receiver Operating Characteristic (ROC) Curve</a> in 1982. The duo then followed this paper up in 1983 with another aptly titled landmark paper:
-<a src="https://pubs.rsna.org/doi/epdf/10.1148/radiology.148.3.6878708">A Method of Comparing the Areas under Receiver Operating Characteristic Curves Derived from the Same Cases.</a> To summarize, they created a methodology for using the AUROC score to perform hypothesis tests in order to compare models in a statistically significant way using the Z-Score.
+Hanley, of <a href="https://www.mcgill.ca/epi-biostat-occh/james-hanley">McGill University</a>, and McNeil, of <a href="https://hcp.hms.harvard.edu/people/barbara-j-mcneil?page=18">Harvard University</a>, published a landmark paper titled: <a href="https://pubs.rsna.org/doi/epdf/10.1148/radiology.143.1.7063747">The Meaning and Use of the Area under a Receiver Operating Characteristic (ROC) Curve</a> in 1982. The duo then followed this paper up in 1983 with another aptly titled landmark paper:
+<a href="https://pubs.rsna.org/doi/epdf/10.1148/radiology.148.3.6878708">A Method of Comparing the Areas under Receiver Operating Characteristic Curves Derived from the Same Cases.</a> To summarize, they created a methodology for using the AUROC score to perform hypothesis tests in order to compare models in a statistically significant way using the Z-Score.
 
 $$
 \text{Z} = \frac{AUC_1 - AUC_2}{\sqrt{\frac{V_1 + V_2 - 2 \times \text{Cov}(AUC_1, AUC_2)}{2}}}
@@ -137,7 +139,7 @@ q_1, q_2 = ru.q_calculations(roc_auc)
 
 ## Get T-Stat to Compare Two Models
 
-This method for calculating the T-Stat is adopted from the paper <a src="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr691.pdf">What Predicts U.S. Recessions? (2014)</a> by the researchers Prof. Weiling Liu and Prof. Dr. Emanuel Mönch of <a src="https://damore-mckim.northeastern.edu/people/weiling-liu/">Northeastern University</a> and the <a src="https://www.frankfurt-school.de/en/home/research/staff/Emanuel-Moench">Frankfurt School of Finance and Management</a> respectively. Their paper is very interesting and I highly recommend reading it if you are interested in learning more about the mechanics and potential application of the ROC T-test. Takes the <a src="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">sklearn roc_auc_score</a> method for calculating AUROC by default. Returns a T-stat which you can use for hypothesis testing.
+This method for calculating the T-Stat is adopted from the paper <a href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr691.pdf">What Predicts U.S. Recessions? (2014)</a> by the researchers Prof. Weiling Liu and Prof. Dr. Emanuel Mönch of <a href="https://damore-mckim.northeastern.edu/people/weiling-liu/">Northeastern University</a> and the <a href="https://www.frankfurt-school.de/en/home/research/staff/Emanuel-Moench">Frankfurt School of Finance and Management</a> respectively. Their paper is very interesting and I highly recommend reading it if you are interested in learning more about the mechanics and potential application of the ROC T-test. Takes the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">sklearn roc_auc_score</a> method for calculating AUROC by default. Returns a T-stat which you can use for hypothesis testing.
 
 ```python
 import research_roc_utils.roc_utils as ru
@@ -151,7 +153,7 @@ t_stat = ru.roc_t_stat(y_true, model_1_y_pred, model_2_y_pred, kendalltau)
 ## Get Z-Score to Compare Two Models
 
 This method is used to calculate the Z-Score based on the implementation of Hanley and McNeil outlined above. This score can be used for hypothesis testing and comparing two models. Also uses the
-<a src="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">sklearn roc_auc_score</a> as the default roc_auc_fun argument.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">sklearn roc_auc_score</a> as the default roc_auc_fun argument.
 
 ```python
 import research_roc_utils.roc_utils as ru
@@ -164,7 +166,7 @@ z_score = ru.roc_z_score(y_true, y_pred_1, y_pred_2, pearsonr)
 
 ## Get Non-Parametric AUROC Score
 
-This method is useful in contexts such as econometric or financial analysis when it is not appropriate to assume a specific probability distribution of the data being analyzed. This methodology was adapted from the groundbreaking paper <a src="https://economics.ucr.edu/wp-content/uploads/2019/10/Jorda-paper-for-1-24-11-seminar.pdf">Performance Evaluation of Zero Net-Investment Strategies</a> by Òscar Jordà of the <a src="https://economics.ucdavis.edu/people/oscar-jorda">University of California at Davis</a> and Alan M. Taylor also of <a src="https://economics.ucdavis.edu/people/alan-taylor">University of California at Davis.</a> I highly recommend reading their widely cited paper for more information on the theory behind this method.
+This method is useful in contexts such as econometric or financial analysis when it is not appropriate to assume a specific probability distribution of the data being analyzed. This methodology was adapted from the groundbreaking paper <a href="https://economics.ucr.edu/wp-content/uploads/2019/10/Jorda-paper-for-1-24-11-seminar.pdf">Performance Evaluation of Zero Net-Investment Strategies</a> by Òscar Jordà of the <a href="https://economics.ucdavis.edu/people/oscar-jorda">University of California at Davis</a> and Alan M. Taylor also of <a href="https://economics.ucdavis.edu/people/alan-taylor">University of California at Davis.</a> I highly recommend reading their widely cited paper for more information on the theory behind this method.
 
 $$
 \text{AUC} = \frac{1}{TN \times TP} \sum_{i=1}^{TN} \sum_{j=1}^{TP} \left( I(v_j < u_i) + \frac{1}{2} I(u_i = v_j) \right)
@@ -176,7 +178,7 @@ auc = ru.auroc_non_parametric(y_true, y_pred_prob)
 
 ## Get AUROC Bootstrapped P-Value to Compare Two Models
 
-This method returns a p-value by comparing two models using bootstrapping. The method can be used to perform both one-sided and two-sided hypothesis tests. The structure for the code itself was inspired by another open source project <a src="https://github.com/mateuszbuda/ml-stat-util/tree/master">ml-stat-util</a> by <em><a src="https://github.com/mateuszbuda">@mateuszbuda</a></em> who is a machine learning researcher based out of Poland. This implementation uses a different methodology for calculating the p-value for two-sided tests, changes the bootstrapping methodology, uses differnt scoring functionality, and is optimized to work with AUROC scores specifically. Returns the p-value as well as a list, l, of the deltas between the two models' AUROC scores based on whatever compare_fun is passed in. Uses the <a src="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">sklearn roc_auc_score</a> as the default score_fun argument.
+This method returns a p-value by comparing two models using bootstrapping. The method can be used to perform both one-sided and two-sided hypothesis tests. The structure for the code itself was inspired by another open source project <a href="https://github.com/mateuszbuda/ml-stat-util/tree/master">ml-stat-util</a> by <em><a href="https://github.com/mateuszbuda">@mateuszbuda</a></em> who is a machine learning researcher based out of Poland. This implementation uses a different methodology for calculating the p-value for two-sided tests, changes the bootstrapping methodology, uses differnt scoring functionality, and is optimized to work with AUROC scores specifically. Returns the p-value as well as a list, l, of the deltas between the two models' AUROC scores based on whatever compare_fun is passed in. Uses the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">sklearn roc_auc_score</a> as the default score_fun argument.
 
 ```python
 """
@@ -210,7 +212,7 @@ else:
 
 ## Create Stacked ROC Plot for Multiple Models
 
-This method uses the <a src="https://matplotlib.org/stable/index.html">matplotlib</a> library to easily create a stacked ROC plot of multiple models. Abstracts the functionality for creating the plot itself and returns a plot object with minimal styling which can then be further customized. Uses the <a src="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html">sklearn</a> auc method for calculating the AUROC for each model as the default auc_fun. The default roc_fun is from <a src="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html">sklearn</a> for generating the TPR and FPR values.
+This method uses the <a href="https://matplotlib.org/stable/index.html">matplotlib</a> library to easily create a stacked ROC plot of multiple models. Abstracts the functionality for creating the plot itself and returns a plot object with minimal styling which can then be further customized. Uses the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html">sklearn</a> auc method for calculating the AUROC for each model as the default auc_fun. The default roc_fun is from <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html">sklearn</a> for generating the TPR and FPR values.
 
 - <b>model_preds:</b> array of prediction probabilities -> list of lists where each item is a model's y_pred values
 - <b>model_names:</b> list of strings containing the names for each model in the same order as the model_preds variable
@@ -242,7 +244,7 @@ plt_obj.show()
 
 ## Output:
 
-<div style="display: flex; flex-direction: column; align-items: center">
+<div style="margin: auto;">
     <img src="https://i.postimg.cc/8CWhR4hk/stacked-roc-curve-lag-12.png" style="height: 500px"/>
 </div>
 
