@@ -1,6 +1,6 @@
-<div style="margin: auto;">
+<p align="center">
     <img src="https://i.postimg.cc/265WB2yK/roc-curve-package.png"/>
-</div>
+</p>
 
 # Research Utility Package for ROC Curves and AUROC Analysis
 
@@ -32,11 +32,11 @@
 
 ROC, or Receiver Operating Characteristic Curve, is essentially a graph that shows how well a binary classification problem is performing. When observing the graph, there is a straight line cutting through the graph at a 45 degree angle. This line represents random guessing, i.e. the model is no better at classifying a class than a coin flip.
 
-<div style="margin: auto;">
+<p align="center">
     <a href="https://www.evidentlyai.com/classification-metrics/explain-roc-curve#how-to-get-the-roc-auc-score">
         <img src="https://assets-global.website-files.com/6266b596eef18c1931f938f9/647607123e84a06a426ce627_classification_metrics_014-min.png" style="height: 300px; margin: auto;"/>
     </a>
-</div>
+</p>
 The lines can be interpreted as the trade-off between <a href="https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc">true positive rate (TPR) and the false positive rate (FPR)</a> . TPR is also often referred to as the <b>recall score</b>, especially in machine learning contexts. It is calculated by dividing the number of correctly identified true cases divided by the sum of the number of correctly identifies true cases and the false negatives.
 
 $$
@@ -65,11 +65,11 @@ The way to interpret the graph visually is: the closer the graph's line is to th
 
 While visual inspection of the ROC plot is sufficient in certain cases, oftentimes it can be beneficial to dive deeper in the model's effectiveness. This is where AUROC, or <b>Area Under the Receiver Operating Characteristic</b>, analysis comes into play. It is exactly what it sounds like, in the sense that it is literally the area under the ROC curve. Conceptually, it is a single number which quantifies the overall ability of the model to classify beyond visual inspection alone. It is a score which ranges between 0 and 1, where 0.5 represents random guessing and 1 represents perfect performance. There are several different ways to calculate the AUROC score, but the most common method is to use the <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoidal rule</a>. This is not something anyone would ever calculate by hand, but the mechanics basically involve forming trapezoids progressively across the graph to estimate the area.
 
-<div style="margin: auto;">
+<p align="center">
     <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trapezium2.gif/440px-Trapezium2.gif" style="height: 300px"/>
     </a>
-</div>
+</p>
 
 ## James A. Hanley and Barbara McNeil Methodology
 
@@ -244,9 +244,9 @@ plt_obj.show()
 
 ## Output:
 
-<div style="margin: auto;">
-    <img src="https://i.postimg.cc/8CWhR4hk/stacked-roc-curve-lag-12.png" style="height: 500px"/>
-</div>
+<p align="center">
+    <img src="https://i.postimg.cc/8CWhR4hk/stacked-roc-curve-lag-12.png" style="height: 450px"/>
+</p>
 
 ## Get Optimal Classification Threshold from ROC Curve
 
