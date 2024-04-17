@@ -3,3 +3,7 @@ __pycache__/
 .DS_Store
 util-helpers/
 test-test.py
+venv/
+build/
+dist/
+research_roc_utils.egg-info/
