@@ -212,6 +212,12 @@ def calculate_roc_score(y_true, y_pred, indices, score_fun, sample_weight):
     else:
       return score_fun(y_true[indices], y_pred[indices])
   
+def convert_np_array(list_like):
+    if isinstance(list_like, np.ndarray):
+        return list_like
+    else:
+        return np.array(list_like)
+  
 def p_val(
     y_true,
     y_pred_1,
@@ -225,6 +231,11 @@ def p_val(
     reject_one_class_samples=True,
 ):
     l = []
+    
+    # ensure that lists are array like object that have shape
+    y_true = convert_np_array(y_true)
+    y_pred_1 = convert_np_array(y_pred_1)
+    y_pred_2 = convert_np_array(y_pred_2)
     
     indices = list(boot.bootstrap_indices(y_true, n_samples=n_resamples, seed=seed))
     
@@ -444,7 +455,6 @@ def optimal_threshold(y_true, y_pred):
 # finding the optimal cutoff for highly imbalanced data
 # can be more challenging, therefore the prodecure
 # needs to be slightly adjusted
-# original source: https://shorturl.at/ewMS3
 # uses geometric mean method
 def optimal_threshold_imbalanced(y_true, y_pred):
     # calc the curve

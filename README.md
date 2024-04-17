@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://i.postimg.cc/265WB2yK/roc-curve-package.png"/>
+    <img src="https://i.postimg.cc/vZPgPZZz/roc-curve-package.png" style="height: 450px;"/>
 </p>
 
 # Research Utility Package for ROC Curves and AUROC Analysis
