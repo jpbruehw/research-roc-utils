@@ -210,7 +210,7 @@ def calculate_roc_score(y_true, y_pred, indices, score_fun, sample_weight):
     if sample_weight is not None:
         return score_fun(y_true[indices], y_pred[indices], sample_weight=sample_weight[indices])
     else:
-      return score_fun(y_true[indices], y_pred[indices])
+        return score_fun(y_true[indices], y_pred[indices])
   
 def convert_np_array(list_like):
     if isinstance(list_like, np.ndarray):
@@ -230,7 +230,7 @@ def p_val(
     seed=None,
     reject_one_class_samples=True,
 ):
-    l = []
+    z = []
     
     # ensure that lists are array like object that have shape
     y_true = convert_np_array(y_true)
@@ -244,14 +244,14 @@ def p_val(
             continue
         score_1 = calculate_roc_score(y_true, y_pred_1, idx_vals, score_fun, sample_weight)
         score_2 = calculate_roc_score(y_true, y_pred_2, idx_vals, score_fun, sample_weight)
-        l.append(compare_fun(score_1, score_2))
+        z.append(compare_fun(score_1, score_2))
 
-    p = percentileofscore(l, 0.0, kind="mean") / 100.0
+    p = percentileofscore(z, 0.0, kind="mean") / 100.0
 
     if two_tailed:
         p = 2 * min(p, 1-p)
         
-    return p, l
+    return p, z
 
 ##############################################################################
 # p4: Binary Model comparison functions that provide functionality
@@ -343,8 +343,8 @@ def roc_z_score(y_true, y_pred_1, y_pred_2, corr_method, roc_auc_fun=roc_auc_sco
 # method for comparing two models using 
 # at a given significance level with bootstrapping
 # 1 - p hypothesis test:
-# H0: Model 1 performance is significantly different from Model 2
-# H1: Model 1 is not significantly different from Model 2
+# H0: Model 1 and Model 2 have no difference in performance
+# H1: Model 2's performance is better than Model 1
 # returns p-val and list of the differences between models
 def boot_p_val(
     y_true,
@@ -481,8 +481,8 @@ def auroc_non_parametric(y_true, y_pred):
     # get true neg and pos counts
     n_1 = sum(1 for y in y_true if y == 1)
     n_0 = sum(1 for y in y_true if y == 0)
-    # get geometric mean
-    g_mean = 1 / (n_1 * n_0)
+    # get reciprocal product
+    rec_prod = 1 / (n_1 * n_0)
     # create df and seperate
     df = pd.DataFrame({'y_true': y_true, 'y_pred': y_pred})
     # get predictions at 0 and 1
@@ -496,6 +496,6 @@ def auroc_non_parametric(y_true, y_pred):
                 total_sum += 1
             elif zi == xj:
                 total_sum += 0.5
-    auroc = g_mean * total_sum
+    auroc = rec_prod * total_sum
     
     return auroc

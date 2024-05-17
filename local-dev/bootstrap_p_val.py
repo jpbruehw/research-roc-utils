@@ -8,10 +8,10 @@ def calculate_roc_score(y_true, y_pred, indices, score_fun, sample_weight):
     if sample_weight is not None:
         return score_fun(y_true[indices], y_pred[indices], sample_weight=sample_weight[indices])
     else:
-      return score_fun(y_true[indices], y_pred[indices])
+        return score_fun(y_true[indices], y_pred[indices])
   
-# H0: Model 1 is significantly better than Model 2
-# H1: performance is not significantly different from zero
+# H0: There is no difference between Model 1 and Model 2
+# H1: Model 2 is better than Model 1
 def p_val(
     y_true,
     y_pred_1,

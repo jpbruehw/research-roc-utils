@@ -5,8 +5,8 @@ from setuptools import find_packages, setup
 
 def read(*paths, **kwargs):
     """Read the contents of a text file safely.
-    >>> read("research_roc_utils", "0.1.0")
-    '0.1.0'
+    >>> read("research_roc_utils", "0.1.1")
+    '0.1.1'
     >>> read("README.md")
     ...
     """
@@ -26,7 +26,7 @@ def read_requirements(path):
         if not line.startswith(('"', "#", "-", "git+"))
     ]
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 setup(
     name="research_roc_utils",
